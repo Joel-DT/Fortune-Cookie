@@ -1,5 +1,5 @@
 /*
- * @author JOel Delgado
+ * @author Joel Delgado
  * Fortune Cookie App 2020-05-30
  * @version 1.0.0
  */
@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 
 /**
  * Fortune Cookie App.
- * Class creates the GUI and contains and list of fortunes.
+ * Class creates the GUI and contains the list of fortunes.
  */
 public class FortuneCookie extends Application {
 	private List<String> fortunes = new ArrayList<>();
@@ -120,7 +120,7 @@ public class FortuneCookie extends Application {
 	
 	/**
 	 * Reads the fortunes from a text file and transfers them to a list.
-	 * Changes all # to new-line-characters for optimal display on the pane.
+	 * Changes all # to <code>/n</code>-character for optimal display on the pane.
 	 * And finally shuffles the list.
 	 * @throws FileNotFoundException
 	 */
@@ -151,9 +151,9 @@ public class FortuneCookie extends Application {
 		/**
 		 * Handles what happens when a user clicks on cookie button
 		 * Checks to see if there are any cookies left:
-		 * if <code>false</code> buttons are disabled and cookie-button is changed to crumble-button
-		 * if <code>true</code>  cookie-button is changed to open-cookie-button, a fortune is displayed
-		 * and the new-cookie-button is enabled 
+		 * if <code>false</code> buttons are disabled and Cookie-button is changed to Crumble-button
+		 * if <code>true</code>  Cookie-button is changed to OpenCookie-button, a fortune is displayed
+		 * where the label is situated, and the NewCookie-button is enabled.
 		 */
 		@Override
 		public void handle(ActionEvent event) {
@@ -177,9 +177,14 @@ public class FortuneCookie extends Application {
 	
 
 	/**
-	 * Class handles what happens when new cookie button is selected
+	 * Class handles what happens when new-cookie-button is pressed
 	 */
 	private class NewCookie implements EventHandler<ActionEvent> {
+		/**
+		* When NewCookie-button is pressed it gets dissabled, the OpenCookie-button
+		* is removed from the pane and the Cookie-button is readded. All text deleted
+		* from label.
+		*/
 		public void handle(ActionEvent event) {
 			btNewCookie.setDisable(true);
 			top.getChildren().remove(btOpenCookie);
